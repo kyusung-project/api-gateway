@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: api-gateway
+  profiles:
+    default: local
+  cloud:
+    gateway:
+      #      default-filters:
+      #        - name: LoggingFilter
+      #          args:
+      #            baseMessage: "[OneLine]"
+      #            preLogger: true
+      #            postLogger: true
+      routes:
+        - id: cafeteria-service
+          uri: lb://cafeteria-service
+          predicates:
+            - Path=/cafeteria/**
+          filters:
+            - RewritePath=/cafeteria/(?<segment>.*), /$\{segment}
+
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
