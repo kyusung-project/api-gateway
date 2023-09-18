@@ -12,12 +12,18 @@ spring:
       #            preLogger: true
       #            postLogger: true
       routes:
+        - id: alarm-service
+          uri: lb://alarm-service
+          predicates:
+            - Path=/alarm/**
+          filters:
+            - RewritePath=alarm(?<segment>.*), $\{segment}
         - id: cafeteria-service
           uri: lb://cafeteria-service
           predicates:
             - Path=/cafeteria/**
           filters:
-            - RewritePath=/cafeteria/(?<segment>.*), /$\{segment}
+            - RewritePath=cafeteria(?<segment>.*), $\{segment}
 
 eureka:
   instance:

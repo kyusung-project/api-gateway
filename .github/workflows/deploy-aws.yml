@@ -8,11 +8,11 @@ on:
 
 env:
   AWS_REGION: ap-northeast-2
-  ECR_REPOSITORY: api-gateway
+  ECR_REPOSITORY: api-gateway-service
   ECS_SERVICE: ApiGatewayService
-  ECS_CLUSTER: ApiGatewayCluster
-  ECS_TASK_DEFINITION: ApiGatewayTaskDefinition
-  CONTAINER_NAME: api-gateway-container
+  ECS_CLUSTER: KyusungCluster
+  ECS_TASK_DEFINITION: ApiGatewayServiceTaskDefinition
+  CONTAINER_NAME: api-gateway-service-container
 
 permissions:
   contents: read
