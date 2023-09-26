@@ -15,19 +15,4 @@ public class ApiGatewayApplication {
     public static void main(String[] args) {
         SpringApplication.run(ApiGatewayApplication.class, args);
     }
-
-    @Bean
-    public EurekaInstanceConfigBean eurekaInstanceConfig(InetUtils inetUtils) {
-        EurekaInstanceConfigBean config = new EurekaInstanceConfigBean(inetUtils);
-        String ip = null;
-        try {
-            ip = InetAddress.getLocalHost().getHostAddress();
-        } catch (UnknownHostException e) {
-            e.printStackTrace();
-        }
-        config.setIpAddress(ip);
-        config.setPreferIpAddress(true);
-        config.setNonSecurePort(8080);
-        return config;
-    }
 }

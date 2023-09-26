@@ -3,4 +3,8 @@ server:
 eureka:
   client:
     service-url:
-      defaultZone: http://discovery.leekyusung.kr/eureka/
+      defaultZone: http://localhost:8761/eureka/
+
+logging:
+  file:
+    path: /home/leekyusung/api-gateway-service/logs
