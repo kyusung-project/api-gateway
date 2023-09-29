@@ -1,3 +1,3 @@
-kill $(cat /home/leekyusung/api-gateway-service/pid.file) &&
-  rm /home/leekyusung/api-gateway-service/pid.file | true
+kill $(cat /home/leekyusung/service/api-gateway/pid.file) &&
+  rm /home/leekyusung/service/api-gateway/pid.file | true
 nohup ./start.sh &

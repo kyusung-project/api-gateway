@@ -7,4 +7,4 @@ eureka:
 
 logging:
   file:
-    path: /home/leekyusung/api-gateway-service/logs
+    path: /home/leekyusung/service/api-gateway/logs
