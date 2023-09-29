@@ -24,6 +24,12 @@ spring:
             - Path=/cafeteria/**
           filters:
             - RewritePath=cafeteria(?<segment>.*), $\{segment}
+        - id: dahye-service
+          uri: lb://dahye-service
+          predicates:
+            - Path=/dahye/**
+          filters:
+            - RewritePath=dahye(?<segment>.*), $\{segment}
 
 eureka:
   instance:
