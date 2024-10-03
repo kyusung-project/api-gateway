@@ -30,6 +30,12 @@ spring:
             - Path=/dahye/**
           filters:
             - RewritePath=dahye(?<segment>.*), $\{segment}
+        - id: pink-spot-back-service
+          uri: lb://pink-spot-back-service
+          predicates:
+              - Path=/pink-spot/**
+          filters:
+              - RewritePath=pink-spot(?<segment>.*), $\{segment}
 
 eureka:
   instance:
